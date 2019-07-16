@@ -1,0 +1,30 @@
+{% extends 'portal/shapka.html' %}
+
+
+    {% block title %}
+        glavnaya
+        {% endblock %}
+
+{% block content %}
+    <h1>Волейбольные матчи</h1>
+
+{% for competition in competitions %}
+ <div class="card-header">
+    <p class="card-text">{{ competition.title }}</p>
+  </div>
+
+     <div class="card mb-5">
+{% for year in competition.years.all %}
+
+
+
+  <div class="card-body">
+
+    <a href="{% url 'competition_detail_url' slug=year.slug %}" class="btn btn-primary">{{ year.date }}</a>
+  </div>
+
+
+{% endfor %}
+     </div>
+{% endfor %}
+{% endblock %}
