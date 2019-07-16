@@ -1,0 +1,28 @@
+{% extends 'portal/shapka.html' %}
+<body >
+
+
+{% block title %}
+{{ year.date  }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="card border-primary mb-3" style="max-width: 18rem;">
+    {% for comp in year.competitions.all %}
+  <div class="card-header bg-transparent border-primary">{{ comp.title }} {{ year.date }}
+  </div>
+  <div class="card-body text-primary">
+    <h5 class="card-title"> </h5>
+          <p class="card-text">Места:</p>
+
+    <p class="card-text">1.{{ year.team1 }}</p>
+          <p class="card-text">2.{{ year.team2 }}</p>
+    <p class="card-text">3.{{ year.team3 }}</p>
+  </div>
+{% endfor %}
+  </div>
+
+{% endblock %}
+
+</body>
